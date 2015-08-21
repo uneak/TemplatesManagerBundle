@@ -20,14 +20,6 @@ class Configuration implements ConfigurationInterface
         $treeBuilder = new TreeBuilder();
         $rootNode = $treeBuilder->root('uneak_templatesmanager');
 
-        $rootNode
-            ->isRequired()
-            ->useAttributeAsKey('name')
-            ->prototype('scalar')->end()
-
-
-        ;
-
         return $treeBuilder;
     }
 }

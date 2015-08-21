@@ -2,7 +2,7 @@
 
 	namespace Uneak\TemplatesManagerBundle\Templates;
 
-	class Template {
+	class TemplatesManager {
 
         protected $templates;
 
