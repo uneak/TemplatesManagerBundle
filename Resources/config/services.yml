@@ -1,0 +1,9 @@
+parameters:
+    uneak.templatesmanager.class: Uneak\TemplatesManagerBundle\Templates\Template
+
+services:
+
+    uneak.templatesmanager:
+        class: %uneak.templatesmanager.class%
+        arguments:
+            - %uneak.templates%
