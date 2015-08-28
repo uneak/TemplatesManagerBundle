@@ -2,12 +2,18 @@
 
 	namespace Uneak\TemplatesManagerBundle\Templates;
 
+    use Symfony\Component\DependencyInjection\ContainerInterface;
+
 	class TemplatesManager {
 
         protected $templates;
 
-        public function __construct($templates) {
-            $this->templates = $templates;
+        public function __construct(ContainerInterface $container) {
+            $this->templates = $container->getParameter("uneak_templates");
+        }
+
+        public function all() {
+            return $this->templates;
         }
 
         public function get($id) {

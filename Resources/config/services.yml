@@ -6,4 +6,4 @@ services:
     uneak.templatesmanager:
         class: %uneak.templatesmanager.class%
         arguments:
-            - %uneak_templates%
+            - @service_container
