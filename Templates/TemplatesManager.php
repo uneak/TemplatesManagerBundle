@@ -2,12 +2,20 @@
 
 	namespace Uneak\TemplatesManagerBundle\Templates;
 
+    use Symfony\Component\DependencyInjection\ContainerInterface;
+
 	class TemplatesManager {
 
-        protected $templates;
+        protected $templates = array();
 
-        public function __construct($templates) {
-            $this->templates = $templates;
+        public function __construct($configTemplates) {
+            foreach ($configTemplates as $id => $template) {
+                $this->set($id, $template, true);
+            }
+        }
+
+        public function all() {
+            return $this->templates;
         }
 
         public function get($id) {
@@ -18,9 +26,7 @@
         }
 
         public function set($id, $template, $override = true) {
-            if ($override) {
-                $this->templates[$id] = $template;
-            } else if (!isset($this->templates[$id])) {
+            if ($override || !isset($this->templates[$id])) {
                 $this->templates[$id] = $template;
             }
 
