@@ -14,18 +14,18 @@
             }
         }
 
-        public function all() {
+        public function getTemplates() {
             return $this->templates;
         }
 
-        public function get($id) {
+        public function getTemplate($id) {
             if (!isset($this->templates[$id])) {
                 // TODO lever une exeption
             }
             return $this->templates[$id];
         }
 
-        public function set($id, $template, $override = true) {
+        public function setTemplate($id, $template, $override = true) {
             if ($override || !isset($this->templates[$id])) {
                 $this->templates[$id] = $template;
             }
@@ -33,11 +33,11 @@
             return $this;
         }
 
-        public function has($id) {
+        public function hasTemplate($id) {
             return isset($this->templates[$id]);
         }
 
-        public function remove($id) {
+        public function removeTemplate($id) {
             unset($this->templates[$id]);
             return $this;
         }
